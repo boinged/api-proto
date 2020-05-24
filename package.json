@@ -1,0 +1,27 @@
+{
+  "description": "api proto",
+  "devDependencies": {
+    "@grpc/grpc-js": "1.0.4",
+    "@types/google-protobuf": "3.7.2",
+    "@types/node": "14.0.5",
+    "grpc-tools": "1.9.0",
+    "grpc_tools_node_protoc_ts": "3.0.0",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.3"
+  },
+  "license": "ISC",
+  "main": "dist/index.js",
+  "name": "api-proto",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boinged/api-proto.git"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc && npm run protoc-ts",
+    "protoc": "npm run protoc-js",
+    "protoc-js": "grpc_tools_node_protoc --proto_path=proto --grpc_out=generate_package_definition:src/proto --js_out=import_style=commonjs,binary:src/proto content.proto",
+    "protoc-ts": "grpc_tools_node_protoc --proto_path=proto --ts_out=generate_package_definition:dist/proto --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts content.proto"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0"
+}
