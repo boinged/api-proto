@@ -2,7 +2,6 @@
     "compilerOptions": {
 	    "allowJs": true,
 		"declaration": true,
-        "esModuleInterop": false,
         "module": "commonjs",
         "moduleResolution": "node",
         "outDir": "dist",

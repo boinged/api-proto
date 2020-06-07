@@ -25,7 +25,7 @@ export namespace ContentRequest {
 
 export class ContentResponse extends jspb.Message { 
     getContent(): string;
-    setContent(value: string): void;
+    setContent(value: string): ContentResponse;
 
 
     serializeBinary(): Uint8Array;
