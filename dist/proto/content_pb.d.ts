@@ -27,7 +27,6 @@ export class ContentResponse extends jspb.Message {
     getContent(): string;
     setContent(value: string): ContentResponse;
 
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ContentResponse.AsObject;
     static toObject(includeInstance: boolean, msg: ContentResponse): ContentResponse.AsObject;

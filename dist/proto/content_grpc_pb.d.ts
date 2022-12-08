@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
-import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as content_pb from "./content_pb";
 
 interface IContentService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
@@ -13,7 +12,7 @@ interface IContentService extends grpc.ServiceDefinition<grpc.UntypedServiceImpl
 }
 
 interface IContentService_IGetContent extends grpc.MethodDefinition<content_pb.ContentRequest, content_pb.ContentResponse> {
-    path: string; // "/.Content/GetContent"
+    path: "/Content/GetContent";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<content_pb.ContentRequest>;
@@ -24,7 +23,7 @@ interface IContentService_IGetContent extends grpc.MethodDefinition<content_pb.C
 
 export const ContentService: IContentService;
 
-export interface IContentServer {
+export interface IContentServer extends grpc.UntypedServiceImplementation {
     getContent: grpc.handleUnaryCall<content_pb.ContentRequest, content_pb.ContentResponse>;
 }
 
